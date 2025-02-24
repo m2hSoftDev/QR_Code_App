@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../common/nav_bar.dart';
+
 class HomePage extends StatefulWidget {
-  static const String routeName = '/home';
+  static const String route = '/';
 
   const HomePage({super.key});
 
@@ -38,6 +40,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    print('build');
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
@@ -105,7 +108,8 @@ class _HomePageState extends State<HomePage> {
                   width: 300,
                   height: 300,
                   decoration: BoxDecoration(
-                    border: Border.all(color: const Color(0xFF089BD4), width: 2),
+                    border:
+                        Border.all(color: const Color(0xFF089BD4), width: 2),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   // Replace with actual QR scanner widget
@@ -114,45 +118,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          _buildBottomNavigation(),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildBottomNavigation() {
-    return Container(
-      height: 80,
-      decoration: const BoxDecoration(
-        border: Border(top: BorderSide(color: Colors.grey)),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          _buildNavItem(Icons.qr_code_scanner, 'Scan', HomePage.routeName),
-          _buildNavItem(Icons.qr_code, 'Generate', '/generate'),
-          _buildNavItem(Icons.history, 'History', '/history'),
-          _buildNavItem(Icons.settings, 'Settings', '/settings'),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildNavItem(IconData icon, String label, String route) {
-    return InkWell(
-      onTap: () => Navigator.pushNamed(context, route),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, color: primaryColor, size: 24),
-          const SizedBox(height: 4),
-          Text(
-            label,
-            style: const TextStyle(
-              fontSize: 12,
-              color: primaryTextColor,
-            ),
-          ),
+          buildBottomNavigation(context),
         ],
       ),
     );

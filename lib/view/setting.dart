@@ -49,7 +49,7 @@ class _SettingWidgetState extends State<SettingWidget> {
               size: 24,
             ),
             onPressed: () {
-              print('IconButton pressed ...');
+              Navigator.pop(context);
             },
           ),
         ),
