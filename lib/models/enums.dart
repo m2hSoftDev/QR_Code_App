@@ -1,0 +1,4 @@
+enum ScanSource {
+  liveCamera,
+  fromImage,
+}

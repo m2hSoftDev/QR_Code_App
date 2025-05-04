@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
 
-// class WebsiteIconWidget extends StatelessWidget {
-
-// static const _whiteBorder = BorderSide(color: Colors.white, width: 2);
-// static const _textStyle = TextStyle(
-//   fontWeight: FontWeight.bold,
-//   fontSize: 12,
-// );
 
 Widget WebsiteIconWidget(
     BuildContext context, Icon icon, String title, Function ontap) {

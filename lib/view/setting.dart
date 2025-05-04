@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:qr_scan_and_generate_app/view/home_page.dart';
+
+import '../common/container.dart';
 
 class SettingWidget extends StatefulWidget {
   const SettingWidget({super.key});
@@ -49,7 +52,8 @@ class _SettingWidgetState extends State<SettingWidget> {
               size: 24,
             ),
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.pushReplacement(
+                  context, MaterialPageRoute(builder: (context) => HomePage()));
             },
           ),
         ),
@@ -124,7 +128,7 @@ class _SettingWidgetState extends State<SettingWidget> {
                             width: 10,
                           ),
                           Icon(
-                            Icons.vibration_rounded,
+                            Icons.notifications_active,
                             color: primaryColor,
                             size: 30,
                           ),
@@ -132,39 +136,12 @@ class _SettingWidgetState extends State<SettingWidget> {
                             width: 20,
                           ),
                           Expanded(
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Vibarte',
-                                      textAlign: TextAlign.start,
-                                      style: TextStyle(
-                                        fontFamily: 'Inter Tight',
-                                        letterSpacing: 0.0,
-                                      ),
-                                    ),
-                                    Text(
-                                      'Vibration when scan is done.',
-                                      style: TextStyle(
-                                        fontFamily: 'Inter',
-                                        fontSize: 12,
-                                        letterSpacing: 0.0,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Icon(
-                                  Icons.toggle_on,
-                                  color: primaryColor,
-                                  size: 28,
-                                ),
-                              ],
+                            child: customRow(
+                              'Vibrate',
+                              'Vibrate when scan is done.',
+                              Icon(
+                                Icons.toggle_off_outlined,
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -212,37 +189,12 @@ class _SettingWidgetState extends State<SettingWidget> {
                             width: 20,
                           ),
                           Expanded(
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Beep',
-                                      style: TextStyle(
-                                        fontFamily: 'Inter Tight',
-                                        letterSpacing: 0.0,
-                                      ),
-                                    ),
-                                    Text(
-                                      'Beep when scan is done.',
-                                      style: TextStyle(
-                                        fontFamily: 'Inter',
-                                        letterSpacing: 0.0,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Icon(
-                                  Icons.toggle_off_outlined,
-                                  color: primaryColor,
-                                  size: 28,
-                                ),
-                              ],
+                            child: customRow(
+                              'Beep',
+                              'Beep when scan is done.',
+                              Icon(
+                                Icons.toggle_off_outlined,
+                              ),
                             ),
                           ),
                           SizedBox(
